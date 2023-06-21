@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import { Timestamp, arrayUnion, getFirestore, onSnapshot, serverTimestamp } from "firebase/firestore";
+import { Timestamp, arrayUnion, getFirestore, onSnapshot, orderBy, serverTimestamp } from "firebase/firestore";
 import {
   doc,
   getDocs,
@@ -56,14 +56,22 @@ export const getBlogs = async () => {
   let result=[];
   await (
     await getDocs(
-      collection(db, "Blogs")
+      collection(db, "Blogs"), orderBy("createdAt", "desc")
     )
   ).forEach((doc) => {
     // console.log(doc.data())
     result.push({id: doc.id , ...doc.data()});
   });
-  result.sort();
+  result.map(item=>{
+    console.log(item.createdAt.seconds)
+  })
+  result.sort(function(a, b){return a.createdAt.seconds - b.createdAt.seconds});
+  // result.sort(function(a, b){return a.createdAt.nanoseconds - b.createdAt.nanoseconds});
   result.reverse();
+  console.log('sorted!!')
+  result.map(item=>{
+    console.log(item.createdAt.seconds)
+  })
   return result;
 };
 
