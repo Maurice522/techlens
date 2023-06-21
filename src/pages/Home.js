@@ -27,7 +27,7 @@ export default function Home() {
                 return (
                     <div onClick={()=>viewblog(temp[i])} key={i} className="morecontentbox multitem" style={{display: "flex", justifyContent: "space-between",cursor:"pointer"}}>
                         <h3 style={{maxWidth: "230px", color: "black", letterSpacing: "normal", wordSpacing: "normal", fontWeight: 900, width:"fit-content", margin: "0px", width: "100%", marginTop: "15px"}}>{temp[i].heading} </h3>
-                        <p style={{color: "black", fontSize: "17px"}}>{(temp[i].body[0].split(' ')[0] == "Image" && temp[i].body[0].split(' ')[1] == "Credits:")?null:temp[i].body[0].substr(0,290)}...</p> 
+                        <p style={{color: "black", fontSize: "17px"}}>{(temp[i].body[0].split(' ')[0] == "Image" && temp[i].body[0].split(' ')[1] == "Credits:")?null:temp[i].body[0].length<250? temp[i].body[1].length<250? temp[i].body[2].substr(0,290):temp[i].body[1].substr(0,290):temp[i].body[0].substr(0,290)}... </p> 
                         <img  style={{aspectRatio: 16 / 9, marginTop: "15px", width: "300px", backgroundSize: "cover", height: "90%", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} src={temp[i].img} alt=""/>
                     </div>
                 )
@@ -37,7 +37,7 @@ export default function Home() {
             return(
                 <div onClick={()=>viewblog(temp[i])}  className="morecontentbox multitem" style={{display: "flex", justifyContent: "space-between",cursor:"pointer"}}>
                             <h3 style={{maxWidth: "230px", color: "black", letterSpacing: "normal", wordSpacing: "normal", fontWeight: 900, width:"fit-content", margin: "0px", width: "100%", marginTop: "15px"}}>{temp[i].heading} </h3>
-                            <p style={{color: "black", fontSize: "17px"}}>{(temp[i].body[0].split(' ')[0] == "Image" && temp[i].body[0].split(' ')[1] == "Credits:")?null:temp[i].body[0].substr(0,290)}...</p> 
+                            <p style={{color: "black", fontSize: "17px"}}>{(temp[i].body[0].split(' ')[0] == "Image" && temp[i].body[0].split(' ')[1] == "Credits:")?null:temp[i].body[0].length<250? temp[i].body[1].length<250? temp[i].body[2].substr(0,290):temp[i].body[1].substr(0,290):temp[i].body[0].substr(0,290)}... </p> 
                             <img  style={{aspectRatio: 16 / 9, marginTop: "15px", width: "300px", backgroundSize: "cover", height: "90%", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} src={temp[i].img} alt=""/>
                         </div>
             )
