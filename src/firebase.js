@@ -75,6 +75,33 @@ export const getBlogs = async () => {
   return result;
 };
 
+export const getBlog = async (heading,setdata) => {
+  // console.log(heading)
+  let result=false;
+  (
+    await getDocs(
+      collection(db, "Blogs")
+    )
+  ).forEach((doc) => {
+    // console.log(doc.data())
+    // result.push({id: doc.id , ...doc.data()});
+    var data = doc.data();
+    if(data.heading[data.heading.length-1]=='?'){
+      data.heading =data.heading.substring(0, data.heading.length-1)
+      // console.log(data.heading.length)
+    }
+    // console.log(data.heading , heading)
+    // console.log(data.heading.length , heading.length)
+    if( data.heading == heading){
+      setdata(data)
+      result = data;
+      // console.log(data)
+    }
+  });
+  
+  return result;
+};
+
 
 
 export const getMentorFromDatabase = async (email) => {

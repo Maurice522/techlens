@@ -47,10 +47,39 @@ export default function Home() {
        setBlogData()
     },[])
 
+    const checkNum = (char)=>{
+        var result = false;
+        if(char == "1"){
+            result =true
+        }else if(char == "2"){
+            result =true
+        }else if(char == "3"){
+            result =true
+        }else if(char == "4"){
+            result =true
+        }else if(char == "5"){
+            result =true
+        }else if(char == "6"){
+            result =true
+        }else if(char == "7"){
+            result =true
+        }else if(char == "8"){
+            result =true
+        }else if(char == "9"){
+            result =true
+        }else if(char == "0"){
+            result =true
+        }
+        return result
+    }
 
     const viewblog = (data)=>{
         console.log(data)
-        navigate("/viewblog",{state:{data}})
+        // navigate("/viewblog",{state:{data}})
+        // if(checkNum(data.heading[data.heading.length-1]))
+        // navigate(`/blog/${data.heading}digitaldrama`)
+        // else
+        navigate(`/blog/${data.heading}`)
     }
     if(data){
         return (
