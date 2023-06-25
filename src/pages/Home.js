@@ -3,6 +3,7 @@ import './style.css'
 import './basic.css'
 import { getBlogs } from '../firebase';
 import { useNavigate } from "react-router-dom";
+import AdsComponent from './AdsComponent';
 
 
 export default function Home() {
@@ -89,6 +90,7 @@ export default function Home() {
                
                 <h2> <img src="logo.png" style={{width: "100%", width:"50px", transform: "translateY(20px)"}} /> Digital Drama</h2>
                 </a>
+                {/* <AdsComponent dataAdSlot='7810258282' /> */}
                    
                    <div style={{textAlign: "justify", marginTop:"3%"}}>
                         <div className="homebox" style={{display: "flex", justifyContent: "space-between"}}>
@@ -114,6 +116,10 @@ export default function Home() {
           
            
             </>
+        //     <>
+        //     <h1>Place To show Google AdSense</h1>
+        //    <AdsComponent dataAdSlot='7810258282' />
+        //      </>
           )
     }
     else{
