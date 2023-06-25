@@ -23,3 +23,14 @@ a {
 /* .mainimg:hover{
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 } */
+
+.main{
+    background-color: white;
+    padding: 2% 15%;
+    overflow: visible;
+}
+.main2{
+    background-color: white;
+    padding: 2% 10%;
+    overflow: visible;
+}

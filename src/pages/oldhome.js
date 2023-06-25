@@ -5,7 +5,7 @@ import { getBlogs } from '../firebase';
 import { useNavigate } from "react-router-dom";
 
 
-export default function Home() {
+export default function OldHome() {
     var mrsarr = [2,3,4,5];
     var revarr = [4,3,2];
     const navigate = useNavigate();
@@ -84,13 +84,34 @@ export default function Home() {
     if(data){
         return (
             <>
-            <div className='main'>
-                <a href="/" style={{textDecoration: "none", marginBottom:"10%"}}> 
+            <div >
+                <div className="video-bg">
+                <video width="320" height="240" autoPlay loop muted>
+                 <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4"/>
+                 Your browser does not support the video tag.
+                </video>
+               </div>
+               <div className="dark-light" id="theme">
+                <svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                 <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+               </div>
+               <div className="app" style={{marginTop:"30px"}}>
+               <div className="wrapper">
+               <div className="main-container">
+                  <div className="main-header">
+                    <a href="#" style={{textDecoration: "none", width: "5%"}}> <img src="logo.png" style={{width: "100%", marginLeft: "10%"}} /></a>
+                   <a className="menu-link-main" href="#" style={{paddingLeft: "1%"}}>  Digital Drama</a>
+                   <div className="header-menu">
+                    <a className="main-header-link is-active" href="#">Home</a>
+                    {/* <a className="main-header-link" href="#">Mobile</a>
+                    <a className="main-header-link" href="#">Web</a> */}
                
-                <h2> <img src="logo.png" style={{width: "100%", width:"50px", transform: "translateY(20px)"}} /> Digital Drama</h2>
-                </a>
-                   
-                   <div style={{textAlign: "justify", marginTop:"3%"}}>
+                   </div>
+                  </div>
+                  <div className="content-wrapper">
+                   <div className="content-wrapper-header">
+                   <div style={{textAlign: "justify"}}>
                         <div className="homebox" style={{display: "flex", justifyContent: "space-between"}}>
                             
                             <div onClick={()=>viewblog(data[0])} style={{cursor:"pointer"}}>
@@ -110,9 +131,12 @@ export default function Home() {
                         </div>
                     </div>
                     </div>
-                  
-          
-           
+                    <div className="overlay-app"></div>
+                    </div>
+               </div>
+               </div>
+            </div>
+            </div>
             </>
           )
     }

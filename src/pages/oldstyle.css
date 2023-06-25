@@ -47,6 +47,35 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  font-family: var(--body-font);
+  background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5em;
+}
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0.8em;
+  }
+}
+
+.video-bg {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .video-bgs {
   position: fixed;
@@ -62,14 +91,6 @@ html {
   width: 320px;
   height: 240px;
   object-fit: cover;
-}
-
-
-
-@media screen and (max-width: 480px) {
-  body {
-    padding: 0.8em;
-  }
 }
 
 img {
@@ -130,6 +151,7 @@ body.light-mode .video-bg:before {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   position: relative;
   width: 100%;
   margin-top: 0%;
@@ -309,12 +331,14 @@ body.light-mode .video-bg:before {
 .wrapper {
   display: flex;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .left-side {
   flex-basis: 240px;
   border-right: 1px solid var(--border-color);
   padding: 26px;
+  overflow: auto;
   flex-shrink: 0;
 }
 @media screen and (max-width: 945px) {
@@ -408,6 +432,7 @@ body.light-mode .video-bg:before {
   color: var(--theme-color);
   padding: 20px 40px;
   height: 100%;
+  overflow: auto;
   background-color: var(--theme-bg-color);
 }
 @media screen and (max-width: 510px) {
@@ -474,6 +499,7 @@ body.light-mode .video-bg:before {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -686,6 +712,7 @@ body.light-mode .video-bg:before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow-y: auto;
   box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
   transition: all 0.3s;
   z-index: 10;

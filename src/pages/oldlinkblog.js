@@ -42,13 +42,34 @@ export default function LinkBlog() {
   if(data)
     {return (
     <>
-    <div className='main2'>
-        
-            <a href="/" style={{textDecoration: "none", marginBottom:"10%"}}> 
-               
-               <h2>GO HOME</h2>
-               </a>
-           <div style={{textAlign: "justify", marginTop:"3%"}}>
+    <div >
+        <div className="video-bg">
+        <video width="320" height="240" autoPlay loop muted>
+         <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4"/>
+         Your browser does not support the video tag.
+        </video>
+       </div>
+       <div className="dark-light" id="theme">
+        <svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+       </div>
+       <div className="app" style={{marginTop:"30px"}}>
+       <div className="wrapper">
+       <div className="main-container">
+          <div className="main-header">
+            <a href="#" style={{textDecoration: "none", width: "5%"}}> <img src="logo.png" style={{width: "100%", marginLeft: "10%"}} /></a>
+           <a className="menu-link-main" href="/" style={{paddingLeft: "1%"}}>  Digital Drama</a>
+           <div className="header-menu">
+            <a className="main-header-link is-active" href="#">Current Blog</a>
+            {/* <a className="main-header-link" href="#">Mobile</a>
+            <a className="main-header-link" href="#">Web</a>
+             */}
+           </div>
+          </div>
+          <div className="content-wrapper">
+           <div className="content-wrapper-header">
+           <div style={{textAlign: "justify"}}>
                     <div style={{width: "64%", marginLeft: "18%"}}>
                         <h1 style={{color: "black", letterSpacing: "normal", wordSpacing: "normal", fontWeight: "900"}}>{data?.heading} </h1>
                         <div style={{display: "flex", justifyContent: "space-between"}}>
@@ -57,14 +78,19 @@ export default function LinkBlog() {
                         </div>
                     </div>
                     <div style={{textAlign: "center"}}>
-                        <img  style={{aspectRatio: 19 / 9, height: "400px", width:"80%", boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px "}} src={data?.img} alt=""/>
+                        <img  style={{aspectRatio: 19 / 9, height: "400px", boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px "}} src={data?.img} alt=""/>
                     </div>
                     <div style={{width: "60%", marginLeft: "20%", marginTop: "50px"}}>
                         {para}
                     </div>
                 </div>
             </div>
-     
+            <div className="overlay-app"></div>
+            </div>
+       </div>
+       </div>
+    </div>
+    </div>
     </>
   )
     }
