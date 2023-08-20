@@ -1,14 +1,20 @@
 .card{
     transition: all 1s ease;
+    height: fit-content;
+    background-color: rgb(34, 34, 34);
+    border-radius: 0px;
+    overflow: hidden;
+    background-color:#222222;
+    border-radius:0px;
 }
 .card:hover{
-    border: 4px solid #e7005e;
+    border: 4px solid #3F72AF;
     cursor: pointer;
 }
 .cd{
     transition: all 0.3s ease;
 }
 .cd:hover{
-    border: 2px solid #e7005e;
+    border: 2px solid #3F72AF;
     cursor: pointer;
 }

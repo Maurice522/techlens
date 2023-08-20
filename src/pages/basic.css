@@ -34,3 +34,43 @@ a {
     padding: 2% 10%;
     overflow: visible;
 }
+.h1style{
+    color: black; letter-spacing: normal; word-spacing: normal; font-weight: 900; text-align:justify;
+}
+.imgStyle{
+    aspect-ratio: 19 / 9; height: 400px; width:90%; box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; 
+}
+.paraStyle{
+    width: 70%; margin-left: 15%; margin-top: 50px;
+}
+.pstyle{
+    color: grey; font-size: 13px; margin-top: 8px;
+}
+.h2style{
+    color:#3F72AF;
+}
+
+@media screen and (max-width: 480px) {
+   .imgStyle{
+    height: 359px;
+   }
+   .paraStyle{
+    margin-left: 5%;
+    width: 89%;
+   }
+   .h1style{
+    font-size: calc(1rem + 1.5vw);
+   }
+   .h2style{
+    font-size: calc(0.6rem + 1.5vw);
+   }
+   .main2{
+    background-color: white;
+    padding: 2% 4%;
+    overflow: visible;
+}
+.pstyle{
+    font-size: 11px;
+}
+  }
+

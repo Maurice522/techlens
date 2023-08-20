@@ -5,3 +5,42 @@
     border-bottom: 2px solid #e7005e;
     color: white;
 }
+.menu-item{
+    font-size: 11px;
+   padding: 5px;
+    /* background: #000; */
+    border-radius: 10px;
+    cursor: pointer;
+    /* margin: 5px; */
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-item:hover{
+    border: 2px solid #adb5bd;
+}
+.menu{
+    width: 177px;
+    height: 183px;
+    background: #112D4E;
+    position: absolute;
+    right: 18rem;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    z-index: 99999;
+    border-radius: 10px;
+    box-shadow: none;
+}
+@media screen and (max-width: 480px) {
+    a{
+        margin-left: 9px;
+    }
+    .btn-16{
+        padding-left: 2%;
+    }
+}

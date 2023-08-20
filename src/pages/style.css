@@ -155,6 +155,9 @@ body.light-mode .video-bg:before {
   .header {
     padding: 0 16px;
   }
+.row{
+    flex-direction: column;
+  }
 }
 .header-menu {
   display: flex;

@@ -20,7 +20,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyCZ_53Fn54CEtAiRXu5G409s0m0i8iCkpQ",
   authDomain: "digitaldrama-522.firebaseapp.com",
   projectId: "digitaldrama-522",
@@ -28,6 +28,15 @@ const firebaseConfig = {
   messagingSenderId: "771897868735",
   appId: "1:771897868735:web:385ee49958efdeb405610a",
   measurementId: "G-N9099TTEXT"
+};*/
+const firebaseConfig = {
+  apiKey: "AIzaSyBd2wEJmGcZHo3iED7Xd-uhZOnSUqlER7M",
+  authDomain: "advertisement-7b96c.firebaseapp.com",
+  projectId: "advertisement-7b96c",
+  storageBucket: "advertisement-7b96c.appspot.com",
+  messagingSenderId: "377226109029",
+  appId: "1:377226109029:web:e0adb00b4f6fe21421268c",
+  measurementId: "G-C7P990NF9L"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -51,12 +60,12 @@ export const getUserDocByRef = async (DocumentReference) => {
   return userDocSnapshot.data();
 }
 
-
+/*
 export const getBlogs = async () => {
   let result=[];
   await (
     await getDocs(
-      collection(db, "Blogs"), orderBy("createdAt", "desc")
+      collection(db, "TLBlogs"), orderBy("createdAt", "desc")
     )
   ).forEach((doc) => {
     // console.log(doc.data())
@@ -74,13 +83,35 @@ export const getBlogs = async () => {
   })
   return result;
 };
-
+*/
+export const getBlogs = async () => {
+  let result=[];
+  await (
+    await getDocs(
+      collection(db, "TLBlogs"), orderBy("createdAt", "desc")
+    )
+  ).forEach((doc) => {
+     console.log(doc.data())
+    result.push({id: doc.id , ...doc.data()});
+  });
+  result.map(item=>{
+    console.log(item.createdAt.seconds)
+  })
+  result.sort(function(a, b){return a.createdAt.seconds - b.createdAt.seconds});
+  // result.sort(function(a, b){return a.createdAt.nanoseconds - b.createdAt.nanoseconds});
+  result.reverse();
+  console.log(result)
+  result.map(item=>{
+    console.log(item.createdAt.seconds)
+  })
+  return result;
+};
 export const getBlog = async (heading,setdata) => {
   // console.log(heading)
   let result=false;
   (
     await getDocs(
-      collection(db, "Blogs")
+      collection(db, "TLBlogs")
     )
   ).forEach((doc) => {
     // console.log(doc.data())
@@ -98,9 +129,26 @@ export const getBlog = async (heading,setdata) => {
       // console.log(data)
     }
   });
+ 
   
   return result;
 };
+export const getBlogsbyId=async(id)=>{
+  let result=[];
+  console.log(id);
+  (
+  await getDocs(
+    collection(db,"TLBlogs")
+  )
+  ).forEach((doc)=>{
+    if(doc.data().topic===id){
+      console.log(doc.data().topic)
+      result.push({id:doc.id, ...doc.data()});
+    }
+  })
+  console.log("result",result)
+  return result
+}
 
 
 

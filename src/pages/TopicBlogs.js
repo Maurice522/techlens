@@ -6,14 +6,13 @@ import Navbar from '../components/navbar';
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import './basic.css'
-function MainPage() {
+function TopicBlogs() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [rows, setRows] = useState();
     const {id} = useParams();
     const setBlogData = async()=>{
-        var temp = await getBlogs()
+        var temp = await getBlogsbyId(id)
          console.log("temp",temp)
         setData(temp)
         var tempRows= [];
@@ -32,12 +31,10 @@ function MainPage() {
             i++;
         }
         setRows(tempRows)
-        setLoading(false)
     }
     useEffect(()=>{
-        setLoading(true)
         setBlogData(id) 
-    },[])
+    },[id])
     const viewblog = (data)=>{
         console.log(data)
         // navigate("/viewblog",{state:{data}})
@@ -46,24 +43,51 @@ function MainPage() {
         // else
         navigate(`/tl/blog/${data.heading}`)
     }
-  if(loading)
-  return (
-    <div>loading</div>
-  )
-  else
+  
   console.log("data",data)
   return (
     
     <>
     <Navbar/>
     <div style={{marginTop:"40px"}} className='container'>
-        <h1 style={{color:"#3F72AF",paddingBottom:"20px" ,borderBottom:"2px solid #3F72AF"}}>EXPLORE</h1>
+        <h1 style={{color:"#3F72AF",paddingBottom:"20px" ,borderBottom:"2px solid #3F72AF"}}>{id}</h1>
     </div>
 
+    { (data?.length===1)?
+    <div className="container">
+        <div style={{marginTop:"40px"}} className="row">
+            <div  className="col-sm">
+                <div onClick={()=>viewblog(data[0])}>
+                    <MainCard  props={data[0]}/>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+  :null}
+
+    { (data?.length===2)?
+    <div className="container">
+        <div style={{marginTop:"40px"}} className="row">
+            <div  className="col-sm">
+                <div onClick={()=>viewblog(data[0])}>
+                    <MainCard  props={data[0]}/>
+                </div>
+            </div>
+            <div className="col-sm">
+                <div onClick={()=>viewblog(data[1])}>
+                    <MainCard props={data[1]}/>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  :null}
    
    
 
-    { (!loading&&data?.length>2)?
+    { (data?.length>2)?
     <div className="container">
         <div style={{marginTop:"40px"}} className="row">
             <div  className="col-sm">
@@ -84,7 +108,7 @@ function MainPage() {
         </div>
     </div>
   :null}
-    {(!loading&&data?.length>5)?
+    {(data?.length>5)?
     <div style={{marginTop:"40px"}} className="container">
         <div className="row">
             <div className="col-sm">
@@ -105,7 +129,7 @@ function MainPage() {
         </div>
     </div>
     :null}
-    {(!loading&&data)?
+    {(data)?
     <div className='container'>
     {rows}
     </div>
@@ -115,4 +139,4 @@ function MainPage() {
   )
 }
 
-export default MainPage;
+export default TopicBlogs;
