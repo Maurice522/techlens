@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 import Button from './button'
 import "./navbar.css"
 
@@ -26,25 +28,8 @@ function Navbar() {
                         <li className="nav-item active">
                             <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="/">Explore </a>
                         </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">Software Dev</a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">Cloud</a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">IT Ops </a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">Data </a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">Security </a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#">Leadership </a>
-                        </li>
-                        <li className="nav-item active">
+                        
+                       {/* <li className="nav-item active">
                             <a className="nav-link" style={{ marginLeft: "20px", textTransform: "uppercase", fontSize: "18px", letterSpacing: '1px', color: "#a5aacf" }} href="#" onClick={() => setDrop(!drop)}>Blogs</a>
                             {drop ? (
                                 
@@ -59,6 +44,30 @@ function Navbar() {
                                     
                                 </div>
                             ) : null}
+                                </li>*/}
+                        <li>
+                            <Dropdown>
+                                <Dropdown.Toggle id="dropdown-basic" style={{
+                                    background: "none",
+                                    border: "none",
+                                    fontSize: "17px",
+                                    paddingTop: "8px",
+                                    fontWeight: "600",
+                                    paddingLeft: "6px",
+                                    color: "#a5aacf",
+                                }} >
+                                    BLOGS
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    {options.map((value, index) => (
+                                        <Dropdown.Item href={`/blog/${value.value}`}>{value.value}</Dropdown.Item>)
+                                    )
+                                    }
+
+
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </li>
                         <li className="nav-item active">
                             <Button text="Contact" />

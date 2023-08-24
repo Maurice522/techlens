@@ -1,7 +1,7 @@
 import React from 'react'
 import "./card.css"
 
-function TextCard({props}) {
+function TextCard({props,viewblog}) {
 
   console.log("props",props)
   let para="";
@@ -16,7 +16,7 @@ function TextCard({props}) {
   console.log(para)
   
   return (
-    <div className="card" /*onClick={()=>viewblog(props)}*/ style={{border:"0px"}}>
+    <div className="card" onClick={()=>viewblog(props)} style={{border:"0px"}}>
 
         <div className="card-body cd" style={{backgroundColor:"#181818"}}>
             <blockquote className="blockquote mb-0">

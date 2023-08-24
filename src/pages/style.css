@@ -632,7 +632,7 @@ body.light-mode .video-bg:before {
     display: none;
   }
 }
-.dropdown {
+/*.dropdown {
   position: relative;
   height: 53px;
   width: 40px;
@@ -643,6 +643,7 @@ body.light-mode .video-bg:before {
   border: none;
   cursor: pointer;
 }
+*/
 .dropdown ul {
   position: absolute;
   background: var(--dropdown-bg);

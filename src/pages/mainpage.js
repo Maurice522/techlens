@@ -25,7 +25,7 @@ function MainPage() {
                     <TextCard props={temp[i]} viewblog={viewblog}/>
                     </div>
                     <div  viewblog={viewblog} class="col">
-                    <TextCard props={temp[i+1]}/>
+                    <TextCard props={temp[i+1]} viewblog={viewblog}/>
                     </div> 
                 </div>
             )

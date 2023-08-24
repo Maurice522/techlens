@@ -2,7 +2,7 @@
     transition: all 0.3s ease;
 }
 .nav-link:hover{
-    border-bottom: 2px solid #e7005e;
+    border-bottom: 2px solid #adb5bd;
     color: white;
 }
 .menu-item{

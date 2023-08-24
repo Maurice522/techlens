@@ -56,9 +56,9 @@ export default function LinkBlogtl() {
                             <p className='pstyle' >{data?.timestamp}</p>
                         </div>
                     </div>
-                    <div style={{textAlign: "center"}}>
+                    {/*<div style={{textAlign: "center"}}>
                         <img className="imgStyle"   src={data?.img} alt=""/>
-                    </div>
+                    </div>*/}
                     <div className='paraStyle' >
                         {para}
                     </div>
